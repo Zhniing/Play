@@ -32,7 +32,7 @@ cc.Class({
 
         let worldManifold = contact.getWorldManifold();
         let points = worldManifold.points;
-        cc.log(points.length);
+        // cc.log(points.length);
 
         let pointVelPlatform = this.pointVelPlatform;
         let pointVelOther = this.pointVelOther;
@@ -52,7 +52,7 @@ cc.Class({
             otherBody.getLinearVelocityFromWorldPoint( points[i], pointVelOther );
             platformBody.getLocalVector( pointVelOther.subSelf(pointVelPlatform), relativeVel );
             
-            console.log(relativeVel);
+            // console.log(relativeVel);
             if ( relativeVel.y < 0 && !flag) {
                 // store disabled state to contact
                 // contact.disabled = true;

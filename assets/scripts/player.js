@@ -4,15 +4,16 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        maxSpeed: 300,
-        jumps: 0,  // 单次跳跃次数（n段跳）
+        maxSpeed: 110,
+        jumps: 1,  // 单次跳跃次数（n段跳）
         acceleration: 1500,
-        jumpSpeed: 500,
+        jumpSpeed: 520,
         drag: 600
     },
 
     onLoad: function () {
         cc.director.getPhysicsManager().enabled = true; // 启用物理引擎
+        cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit; // Enable debug
 
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
@@ -24,6 +25,16 @@ cc.Class({
         this._jumps = this.jumps;
         this._upPressed = false;
         this._preSpeedY = 0;
+
+        // this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
+        //     this.opacity = 100;
+        //     var delta = event.touch.getDelta();
+        //     this.x += delta.x;
+        //     this.y += delta.y;
+        // }, this.node);
+        // this.node.on(cc.Node.EventType.TOUCH_END, function () {
+        //     this.opacity = 255;
+        // }, this.node);
 
         // this.node.addComponent(cc.PhysicsBoxCollider);
         // var pbcs = this.node.getComponents(cc.PhysicsBoxCollider);
