@@ -5,10 +5,9 @@ cc.Class({
 
     properties: {
         maxSpeed: 300,
-        jumps: 2,  // 单次跳跃次数（n段跳）
+        jumps: 0,  // 单次跳跃次数（n段跳）
         acceleration: 1500,
         jumpSpeed: 500,
-        jumpHeight: 100,
         drag: 600
     },
 
@@ -17,18 +16,50 @@ cc.Class({
 
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
-
+        
+        this.body = this.getComponent(cc.RigidBody);
         this._up = false;
         this._left = false;
         this._right = false;
-        this._jumppoint = this.node.y;
+        this._jumps = this.jumps;
         this._upPressed = false;
-        
-        this.body = this.getComponent(cc.RigidBody);
+        this._preSpeedY = 0;
+
+        // this.node.addComponent(cc.PhysicsBoxCollider);
+        // var pbcs = this.node.getComponents(cc.PhysicsBoxCollider);
+        // cc.log(pbcs.length);
+        // pbcs[1].width = 20;
+        // pbcs[1].height = 60;
+        // var position = cc.Vec2.ZERO;
+        // position.x = 130;
+        // position.y = 100;
+        //  pbcs[1].offset = position;
+        // cc.log(pbcs[0].size.width);
+        // cc.log(pbcs[0].size.height);
     },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        this.jumps = 2;
+        let otherBody = otherCollider.body;
+        let platformBody = selfCollider.body;
+
+        let worldManifold = contact.getWorldManifold();
+        let points = worldManifold.points;
+        // cc.log(points.length);
+        var flag = false;
+        for (var i = 0; i < points.length-1; i++) {
+            if ( points[i].y != points[i+1].y ) {
+                flag = true; // 碰撞点的y坐标不相等
+                break;
+            }
+        }
+        
+        // if (points[0].y == points[1].y) {
+        //     this.jumps = this._jumps;
+        // }
+
+        if ( !flag ) {
+            this.jumps = this._jumps;
+        }
     },
 
     onKeyDown (event) {
@@ -41,12 +72,13 @@ cc.Class({
             case cc.KEY.right:
                 this._right = true;
                 break;
+            case cc.KEY.w:
             case cc.KEY.up:
-                if (!this._upPressed) {
+            case cc.KEY.alt:
+                if (!this._upPressed && this.body.linearVelocity.y == 0) {
                     this._up = true;
                 }
                 this._upPressed = true;
-                this._jumppoint = this.node.y;
                 break;
         }
     },
@@ -61,34 +93,38 @@ cc.Class({
             case cc.KEY.right:
                 this._right = false;
                 break;
+            case cc.KEY.w:
             case cc.KEY.up:
+            case cc.KEY.alt:
                 this._upPressed = false;
                 this._up = false;
-                this.jumps--;
                 break;
         }
     },
 
     update: function (dt) {
         var speed = this.body.linearVelocity;
+        var position = this.node.convertToWorldSpace(cc.Vec2.ZERO);
 
         // 处理左右移动
         if(this._left) {
-            if(speed.x > -this.maxSpeed) {
+            if (position.x <= 0) {
+                speed.x = 0;
+            } else if(speed.x > -this.maxSpeed) {
                 speed.x -= this.acceleration * dt;
                 if (speed.x <= -this.maxSpeed) {
                     speed.x = -this.maxSpeed;
                 }
-                
             }
         }
         else if (this._right) {
-            if(speed.x < this.maxSpeed) {
+            if (position.x >= cc.winSize.width - this.node.width * this.node.scale) {
+                speed.x = 0;
+            } else if(speed.x < this.maxSpeed) {
                 speed.x += this.acceleration * dt;
                 if (speed.x >= this.maxSpeed) {
                     speed.x = this.maxSpeed;
                 }
-                
             }
         }
         else { // 松开方向键
@@ -103,14 +139,19 @@ cc.Class({
         }
         
         // 处理跳跃
-        if (this.node.y - this._jumppoint > this.jumpHeight) {
+        // if (this._preSpeedY < 0 && speed.y==0) { // 落到平台上的瞬间
+        //     this.jumps = this._jumps;
+        //     cc.log(1);
+        // }
+        if (this.jumps > 0 && this._up) {
+            this.jumps--;
+            speed.y = this.jumpSpeed;
             this._up = false;
         }
-        if (this.jumps > 0 && this._up) {
-            speed.y = this.jumpSpeed;
-        }
-        
+     
         this.body.linearVelocity = speed;
+        // cc.log(speed);
+        this._preSpeedY = speed.y; // 记录上一帧的速度
     },
 
     
