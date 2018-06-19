@@ -76,7 +76,7 @@ cc.Class({
         }    
         
         // store disabled state to contact
-        // contact.disabled = true;
+        contact.disabled = true;
     },
 
     start () {

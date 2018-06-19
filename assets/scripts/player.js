@@ -8,13 +8,10 @@ cc.Class({
         jumps: 1,  // 单次跳跃次数（n段跳）
         acceleration: 1500,
         jumpSpeed: 520,
-        drag: 600
+        drag: 600,
     },
 
     onLoad: function () {
-        cc.director.getPhysicsManager().enabled = true; // 启用物理引擎
-        // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit; // Enable debug
-
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
         
@@ -24,29 +21,7 @@ cc.Class({
         this._right = false;
         this._jumps = this.jumps;
         this._upPressed = false;
-        this._preSpeedY = 0;
-
-        // this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-        //     this.opacity = 100;
-        //     var delta = event.touch.getDelta();
-        //     this.x += delta.x;
-        //     this.y += delta.y;
-        // }, this.node);
-        // this.node.on(cc.Node.EventType.TOUCH_END, function () {
-        //     this.opacity = 255;
-        // }, this.node);
-
-        // this.node.addComponent(cc.PhysicsBoxCollider);
-        // var pbcs = this.node.getComponents(cc.PhysicsBoxCollider);
-        // cc.log(pbcs.length);
-        // pbcs[1].width = 20;
-        // pbcs[1].height = 60;
-        // var position = cc.Vec2.ZERO;
-        // position.x = 130;
-        // position.y = 100;
-        //  pbcs[1].offset = position;
-        // cc.log(pbcs[0].size.width);
-        // cc.log(pbcs[0].size.height);
+        this.game = this.node.parent.getComponent('game'); // 获取game控制脚本
     },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
@@ -117,28 +92,29 @@ cc.Class({
         var speed = this.body.linearVelocity;
         var position = this.node.convertToWorldSpace(cc.Vec2.ZERO);
 
-        // 处理左右移动
-        if(this._left) {
-            if (position.x <= 0) {
-                speed.x = 0;
-            } else if(speed.x > -this.maxSpeed) {
+        if (position.y < 0) {
+            cc.director.loadScene("GameOver");
+            this.enabled = false;
+        }
+
+        // Move
+        if(this._left) { // Left key pressed
+            if(speed.x > -this.maxSpeed) {
+                // speed.x = -this.maxSpeed;
                 speed.x -= this.acceleration * dt;
                 if (speed.x <= -this.maxSpeed) {
                     speed.x = -this.maxSpeed;
                 }
             }
-        }
-        else if (this._right) {
-            if (position.x >= cc.winSize.width - this.node.width * this.node.scale) {
-                speed.x = 0;
-            } else if(speed.x < this.maxSpeed) {
+        } else if (this._right) { // Right key pressed
+            if(speed.x < this.maxSpeed) {
+                // speed.x = this.maxSpeed;
                 speed.x += this.acceleration * dt;
                 if (speed.x >= this.maxSpeed) {
                     speed.x = this.maxSpeed;
                 }
             }
-        }
-        else { // 松开方向键
+        } else { // Release the key
             if(speed.x != 0) {
                 var d = this.drag * dt;
                 if(Math.abs(speed.x) <= d) {
@@ -148,21 +124,27 @@ cc.Class({
                 }
             }
         }
-        
-        // 处理跳跃
-        // if (this._preSpeedY < 0 && speed.y==0) { // 落到平台上的瞬间
-        //     this.jumps = this._jumps;
-        //     cc.log(1);
-        // }
+
+        // Jump
         if (this.jumps > 0 && this._up) {
             this.jumps--;
             speed.y = this.jumpSpeed;
             this._up = false;
         }
-     
+
+        // Scene border
+        var l = -this.node.parent.width/2 + this.node.width*this.node.scale/2;
+        var r = this.node.parent.width/2 - this.node.width*this.node.scale/2;
+        if ( this.node.x < l) {
+            speed.x = 0;
+            this.node.x = l;
+        } else if (this.node.x > r) {
+            speed.x = 0;
+            this.node.x = r;
+        }
+        
+        // Implement
         this.body.linearVelocity = speed;
-        // cc.log(speed);
-        this._preSpeedY = speed.y; // 记录上一帧的速度
     },
 
     

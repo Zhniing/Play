@@ -32,7 +32,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        var nodeMap = this.node.parent.getChildByName("map");
+        var nodeMap = this.node.parent.getChildByName("Map");
         var tiledMap = nodeMap.getComponent(cc.TiledMap);
         this.mapSize = tiledMap.getMapSize();
         this.tileSize = tiledMap.getTileSize();
@@ -50,50 +50,58 @@ cc.Class({
         this.len = 0;
         for (var y=this.mapSize.height-1; y>=0; y--) {
             for (var x=0; x<this.mapSize.width; x++) {
-                // var x = 0;
-                // while (x < mapSize.width) {
-                    if (blockLayer.getTileGIDAt(x,y)) {
-                        if (!this.joint) {
-                            this.joint = true;
-                            this.left = x * this.tileSize.width;
-                        }
-                        this.len++;
-                    } else if (this.joint) {
-                        this.addPhysicsBoxCollider(x,y);
+                if (blockLayer.getTileGIDAt(x,y)) {
+                    if (!this.joint) {
+                        this.joint = true;
+                        this.left = x * this.tileSize.width;
                     }
-                    // x++;
-                // }
+                    this.len++;
+                } else if (this.joint) {
+                    this.right = x * this.tileSize.width;
+                    this.addPhysicsBoxCollider((this.left + this.right) / 2 - this.ox,
+                                                (this.mapSize.height - y) * this.tileSize.height - this.tileSize.height / 2 - this.oy,
+                                                this.len * this.tileSize.width,
+                                                this.tileSize.height);
+                    this.len = 0;
+                    this.cnt++;
+                    this.joint = false;
+                }
             }
             if (this.joint) {
-                this.addPhysicsBoxCollider(x,y);
+                this.right = x * this.tileSize.width;
+                this.addPhysicsBoxCollider((this.left + this.right) / 2 - this.ox,
+                                            (this.mapSize.height - y) * this.tileSize.height - this.tileSize.height / 2 - this.oy,
+                                            this.len * this.tileSize.width,
+                                            this.tileSize.height);
+                this.len = 0;
+                this.cnt++;
+                this.joint = false;
             }
         }
-        cc.log(this.node.getComponents(cc.PhysicsBoxCollider).length);
+        // this.addPhysicsBoxCollider(cc.winSize.width-10,this.mapSize.height*this.tileSize.height/2,1,this.mapSize.height*this.tileSize.height);
+        // this.addPhysicsBoxCollider(10,this.mapSize.height*this.tileSize.height/2,1,this.mapSize.height*this.tileSize.height);
+        cc.log('Blocks: ' + this.node.getComponents(cc.PhysicsBoxCollider).length);
     },
 
-    addPhysicsBoxCollider: function (x,y) {
-        this.right = x * this.tileSize.width;
+    addPhysicsBoxCollider: function (x,y,w,h) {
+        
         this.node.addComponent(cc.PhysicsBoxCollider);
         var newBox = this.node.getComponents(cc.PhysicsBoxCollider)[this.cnt];
-        newBox.size.width = this.len * this.tileSize.width;
-        newBox.size.height = this.tileSize.height;
+        newBox.size.width = w;
+        newBox.size.height = h;
         // cc.log("newBox.size.width: "+ newBox.size.width);
         // cc.log("newBox.size.height: "+ newBox.size.height);
         // newBox.size.width = 20;
         // newBox.size.height = 60;
         var pos = cc.Vec2.ZERO;
-        pos.x = (this.left + this.right) / 2 - this.ox;
-        pos.y = (this.mapSize.height - y) * this.tileSize.height - this.tileSize.height / 2 - this.oy;
+        pos.x = x;
+        pos.y = y;
         // cc.log('pos.x: ' + pos.x);
         // cc.log('pos.y: ' + pos.y);
         // pos.x = 130;
         // pos.y = 100;
         newBox.offset = pos;
-        // cc.log(this.cnt);
-        this.len = 0;
-        this.cnt++;
-
-        this.joint = false;
+        
     },
 
     start () {
