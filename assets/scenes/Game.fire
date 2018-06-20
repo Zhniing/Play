@@ -560,7 +560,10 @@
     "jumps": 1,
     "acceleration": 1500,
     "jumpSpeed": 520,
-    "drag": 600
+    "drag": 600,
+    "jumpAudio": {
+      "__uuid__": "7cc7ab9d-c7e7-4698-a8a6-4fca38fb5aa5"
+    }
   },
   {
     "__type__": "cc.Node",
@@ -811,7 +814,7 @@
     "target": {
       "__id__": 2
     },
-    "component": "game",
+    "component": "scene",
     "handler": "closeMenu",
     "customEventData": ""
   },
@@ -955,8 +958,8 @@
     "target": {
       "__id__": 2
     },
-    "component": "game",
-    "handler": "onBackToMenu",
+    "component": "scene",
+    "handler": "backToMenu",
     "customEventData": ""
   },
   {
@@ -1000,21 +1003,27 @@
     "_fitHeight": true
   },
   {
-    "__type__": "f4272F8svhLs704gPGnJXTi",
+    "__type__": "5c8bdSCK2ZLV4t7UzxQ6IR8",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 2
     },
     "_enabled": true,
+    "backgroundAudio": {
+      "__uuid__": "00ad39d8-b563-4d66-aa19-b5454a7ee70b"
+    },
+    "mouseEnterAudio": {
+      "__uuid__": "045f3811-a47c-4d57-be52-4c9b235ce820"
+    },
+    "mouseUpAudio": {
+      "__uuid__": "e44bfee5-59f5-416f-856c-4e66816181e5"
+    },
     "mask": {
       "__id__": 18
     },
     "gameMenu": {
       "__id__": 20
-    },
-    "backgroundAudio": {
-      "__uuid__": "00ad39d8-b563-4d66-aa19-b5454a7ee70b"
     }
   },
   {

@@ -57,19 +57,16 @@
     "_children": [
       {
         "__id__": 3
-      },
-      {
-        "__id__": 7
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 12
       },
       {
-        "__id__": 12
+        "__id__": 13
       }
     ],
     "_prefab": null,
@@ -111,20 +108,75 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "BtnStart",
+    "_name": "Menu",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
+    },
+    "_children": [
+      {
+        "__id__": 4
+      },
+      {
+        "__id__": 8
+      }
+    ],
+    "_tag": -1,
+    "_active": true,
+    "_components": [],
+    "_prefab": null,
+    "_id": "78B99/nuhD4JZZYyi/eUEp",
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_opacityModifyRGB": false,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "BtnStart",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 3
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 4
+        "__id__": 5
       },
       {
-        "__id__": 5
+        "__id__": 6
       }
     ],
     "_prefab": null,
@@ -169,7 +221,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 3
+      "__id__": 4
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -193,7 +245,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 3
+      "__id__": 4
     },
     "_enabled": true,
     "transition": 3,
@@ -215,7 +267,7 @@
     "zoomScale": 0.8,
     "clickEvents": [
       {
-        "__id__": 6
+        "__id__": 7
       }
     ],
     "_N$interactable": true,
@@ -241,7 +293,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 3
+      "__id__": 4
     }
   },
   {
@@ -249,8 +301,8 @@
     "target": {
       "__id__": 2
     },
-    "component": "start",
-    "handler": "onStartGame",
+    "component": "scene",
+    "handler": "startGame",
     "customEventData": ""
   },
   {
@@ -258,17 +310,17 @@
     "_name": "BtnOption",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 2
+      "__id__": 3
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 8
+        "__id__": 9
       },
       {
-        "__id__": 10
+        "__id__": 11
       }
     ],
     "_prefab": null,
@@ -313,7 +365,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 7
+      "__id__": 8
     },
     "_enabled": true,
     "transition": 3,
@@ -335,7 +387,7 @@
     "zoomScale": 0.8,
     "clickEvents": [
       {
-        "__id__": 9
+        "__id__": 10
       }
     ],
     "_N$interactable": true,
@@ -361,7 +413,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 7
+      "__id__": 8
     }
   },
   {
@@ -378,7 +430,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 7
+      "__id__": 8
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -414,7 +466,7 @@
     "_fitHeight": true
   },
   {
-    "__type__": "a9bdckeOpBKx4ydv7rW2j7L",
+    "__type__": "5c8bdSCK2ZLV4t7UzxQ6IR8",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -423,6 +475,14 @@
     "_enabled": true,
     "backgroundAudio": {
       "__uuid__": "39b54d8b-ddec-4b5b-88ac-14ba52f69add"
-    }
+    },
+    "mouseEnterAudio": {
+      "__uuid__": "045f3811-a47c-4d57-be52-4c9b235ce820"
+    },
+    "mouseUpAudio": {
+      "__uuid__": "e44bfee5-59f5-416f-856c-4e66816181e5"
+    },
+    "mask": null,
+    "gameMenu": null
   }
 ]

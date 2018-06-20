@@ -9,6 +9,10 @@ cc.Class({
         acceleration: 1500,
         jumpSpeed: 520,
         drag: 600,
+        jumpAudio: {
+            default: null,
+            url: cc.AudioClip,
+        },
     },
 
     onLoad: function () {
@@ -127,6 +131,7 @@ cc.Class({
 
         // Jump
         if (this.jumps > 0 && this._up) {
+            cc.audioEngine.play(this.jumpAudio, false,  1);
             this.jumps--;
             speed.y = this.jumpSpeed;
             this._up = false;
