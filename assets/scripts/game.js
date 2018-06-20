@@ -20,6 +20,10 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
+        backgroundAudio: {
+            default: null,
+            url: cc.AudioClip,
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -29,12 +33,16 @@ cc.Class({
         // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit; // Enable debug
 
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        // if (cc.director.isPaused) {
-        //     cc.director.resume();
-        // }
+
+        this.audioBackground = cc.audioEngine.play(this.backgroundAudio, true, 1);
+        cc.log(cc.audioEngine.getVolume(this.audioBackground));
         this.isMenu = false;
         this.mask.active = false;
         this.gameMenu.active = false;
+    },
+
+    onDestroy: function () {
+        cc.audioEngine.stop(this.audioBackground);
     },
 
     onKeyDown: function (event) {

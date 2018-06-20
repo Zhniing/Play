@@ -12,12 +12,21 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        
+        backgroundAudio: {
+            default: null,
+            url: cc.AudioClip,
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        this.audioBackground = cc.audioEngine.play(this.backgroundAudio, true, 1);
+    },
+
+    onDestroy () {
+        cc.audioEngine.stop(this.audioBackground);
+    },
 
     onStartGame: function () {
         cc.director.loadScene('Game');

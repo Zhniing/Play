@@ -1012,6 +1012,9 @@
     },
     "gameMenu": {
       "__id__": 20
+    },
+    "backgroundAudio": {
+      "__uuid__": "00ad39d8-b563-4d66-aa19-b5454a7ee70b"
     }
   },
   {
