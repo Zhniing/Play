@@ -25,8 +25,10 @@ cc.Class({
     lateUpdate: function (dt) {
         let targetPos = this.target.convertToWorldSpaceAR(cc.Vec2.ZERO);
         // var y = this.node.parent.convertToNodeSpaceAR(targetPos).y;
-        var y = targetPos.y;
-        if (y - cc.winSize.height/2 > 0) {
+        // var y = targetPos.y;
+        var y = this.target.y;
+        // cc.log(y);
+        if (y > 0 && y < this.node.parent.getChildByName('Map').height - this.node.parent.height - 17) {
             this.node.y = y;
         }
         // let ratio = targetPos.y / cc.winSize.height;

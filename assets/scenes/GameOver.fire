@@ -276,7 +276,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 258,
+      "width": 315,
       "height": 40
     },
     "_rotationX": 0,
@@ -319,7 +319,7 @@
       "a": 255
     },
     "duration": 0.01,
-    "zoomScale": 0.8,
+    "zoomScale": 0.9,
     "clickEvents": [
       {
         "__id__": 8
@@ -378,7 +378,7 @@
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
-    "_N$string": "Try again",
+    "_N$string": "Plus Ultra !",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",

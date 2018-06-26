@@ -41,8 +41,14 @@ cc.Class({
             cc.director.getPhysicsManager().enabled = true; // 启用物理引擎
             // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit; // Enable debug
             this.isGameMenu = false;
+            cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         }
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        var curScene = cc.director.getScene();
+        if (curScene.name == 'StartMenu') {
+            cc.log('preload');
+            cc.director.preloadScene('Game');
+            cc.director.preloadScene('GameOver');
+        }
 
         this.children = this.node.children;
         for (var i=0; i<this.children.length; i++) {

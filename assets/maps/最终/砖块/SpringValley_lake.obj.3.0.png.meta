@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "497565eb-7dea-46d0-bb70-673fa8378114",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "SpringValley_lake.obj.3.0": {
+      "ver": "1.0.3",
+      "uuid": "16279fb9-72ca-4217-9dc8-3fb7538ec4e2",
+      "rawTextureUuid": "497565eb-7dea-46d0-bb70-673fa8378114",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 143,
+      "height": 45,
+      "rawWidth": 143,
+      "rawHeight": 45,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

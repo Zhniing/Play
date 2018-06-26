@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "93e0abfb-138c-4b5f-a8e8-fcb0ae8cd0f7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "SpringValley.foot.5.0": {
+      "ver": "1.0.3",
+      "uuid": "1f1d5ea6-2607-45d3-aff9-2ef07dcd39b8",
+      "rawTextureUuid": "93e0abfb-138c-4b5f-a8e8-fcb0ae8cd0f7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 43,
+      "height": 94,
+      "rawWidth": 43,
+      "rawHeight": 94,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

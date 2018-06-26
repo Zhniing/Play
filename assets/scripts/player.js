@@ -21,36 +21,47 @@ cc.Class({
         
         this.body = this.getComponent(cc.RigidBody);
         this._up = false;
+        this._alt = false;
         this._left = false;
         this._right = false;
         this._jumps = this.jumps;
-        this._upPressed = false;
+        this._altPressed = false;
         this.game = this.node.parent.getComponent('game'); // 获取game控制脚本
+        this.flag = false;
+        this.outOfCtrl = false;
+        this.prey = 0;
+        this.gravity = this.body.gravityScale;
     },
 
-    onBeginContact: function (contact, selfCollider, otherCollider) {
-        let otherBody = otherCollider.body;
-        let platformBody = selfCollider.body;
+    // onBeginContact: function (contact, selfCollider, otherCollider) {
+    //     // if (this.flag) {
+    //     //     // contact.disabled = true;
+    //     //     this.flag = false;
+    //     // }
 
-        let worldManifold = contact.getWorldManifold();
-        let points = worldManifold.points;
-        // cc.log(points.length);
-        var flag = false;
-        for (var i = 0; i < points.length-1; i++) {
-            if ( points[i].y != points[i+1].y ) {
-                flag = true; // 碰撞点的y坐标不相等
-                break;
-            }
-        }
+    //     let otherBody = otherCollider.body;
+    //     let platformBody = selfCollider.body;
+
+    //     let worldManifold = contact.getWorldManifold();
+    //     let points = worldManifold.points;
+    //     // cc.log(points.length);
+    //     var flag = false;
+    //     for (var i = 0; i < points.length-1; i++) {
+    //         if ( points[i].y != points[i+1].y ) {
+    //             flag = true; // 碰撞点的y坐标不相等
+    //             break;
+    //         }
+    //     }
         
-        // if (points[0].y == points[1].y) {
-        //     this.jumps = this._jumps;
-        // }
+    //     // if (points[0].y == points[1].y) {
+    //     //     this.jumps = this._jumps;
+    //     // }
 
-        if ( !flag ) {
-            this.jumps = this._jumps;
-        }
-    },
+    //     if ( !flag ) {
+    //         this.jumps = this._jumps;
+    //         this.hurt = false;
+    //     }
+    // },
 
     onKeyDown (event) {
         switch(event.keyCode) {
@@ -62,13 +73,18 @@ cc.Class({
             case cc.KEY.right:
                 this._right = true;
                 break;
+            case cc.KEY.alt:
+                if (!this._altPressed && this.body.linearVelocity.y == 0) {
+                    this._alt = true;
+                }
+                this._altPressed = true;
+                break;
             case cc.KEY.w:
             case cc.KEY.up:
-            case cc.KEY.alt:
-                if (!this._upPressed && this.body.linearVelocity.y == 0) {
-                    this._up = true;
-                }
-                this._upPressed = true;
+                this._up = true;
+                break;
+            case cc.KEY.down:
+                this._down = true;
                 break;
         }
     },
@@ -83,11 +99,16 @@ cc.Class({
             case cc.KEY.right:
                 this._right = false;
                 break;
+            case cc.KEY.alt:
+                this._altPressed = false;
+                this._alt = false;
+                break;
             case cc.KEY.w:
             case cc.KEY.up:
-            case cc.KEY.alt:
-                this._upPressed = false;
                 this._up = false;
+                break;
+            case cc.KEY.down:
+                this._down = false;
                 break;
         }
     },
@@ -96,45 +117,101 @@ cc.Class({
         var speed = this.body.linearVelocity;
         var position = this.node.convertToWorldSpace(cc.Vec2.ZERO);
 
+        // 判断游戏是否结束
         if (position.y < 0) {
             cc.director.loadScene("GameOver");
-            this.enabled = false;
+            this.enabled = false; // 终止脚本
         }
-
-        // Move
-        if(this._left) { // Left key pressed
-            if(speed.x > -this.maxSpeed) {
-                // speed.x = -this.maxSpeed;
-                speed.x -= this.acceleration * dt;
-                if (speed.x <= -this.maxSpeed) {
-                    speed.x = -this.maxSpeed;
+        if (this.hurt) { // 弹一下
+            if (this.flag) speed.x = -200;
+            else speed.x = 200;
+            speed.y = 300;
+            this.outOfCtrl = true;
+            this.hurt = false;
+            this.enterRope = false;
+        }
+        if (this.enterRope) { // 进入绳子范围
+            if (!this.onRope && (this._up || this._down)) {
+                if (this._down) {
+                    this.node.y -= this.node.height*this.node.scale;
                 }
+                this.onRope = true;
+                this.body.gravityScale = 0;
+                this.node.x = this.ropeCenter;
+                speed.y = 0;
             }
-        } else if (this._right) { // Right key pressed
-            if(speed.x < this.maxSpeed) {
-                // speed.x = this.maxSpeed;
-                speed.x += this.acceleration * dt;
-                if (speed.x >= this.maxSpeed) {
-                    speed.x = this.maxSpeed;
-                }
-            }
-        } else { // Release the key
-            if(speed.x != 0) {
-                var d = this.drag * dt;
-                if(Math.abs(speed.x) <= d) {
-                    speed.x = 0;
+            if (this.onRope) {
+                speed.x = 0;
+                if (this._up) {
+                    speed.y = 70;
+                } else if (this._down) {
+                    speed.y = -70;
                 } else {
-                    speed.x -= speed.x > 0 ? d : -d;
+                    speed.y = 0;
                 }
+                if (this._left && this._altPressed) {
+                    this.body.gravityScale = this.gravity;
+                    speed.x = -110;
+                    speed.y = 520;
+                    this.onRope = false;
+                } else if (this._right && this._altPressed) {
+                    this.body.gravityScale = this.gravity;
+                    speed.x = 110;
+                    speed.y = 520;
+                    this.onRope = false;
+                }
+            } else {
+                this.body.gravityScale = this.gravity;
+            }
+        } else {
+            this.body.gravityScale = this.gravity;
+            this.onRope = false;
+        }
+
+        
+        // Move
+        
+        if (!this.outOfCtrl) {
+            if(this._left && !this.onRope) { // Left key pressed
+                if(speed.x > -this.maxSpeed) {
+                    // speed.x = -this.maxSpeed;
+                    speed.x -= this.acceleration * dt;
+                    if (speed.x <= -this.maxSpeed) {
+                        speed.x = -this.maxSpeed;
+                    }
+                }
+            } else if (this._right && !this.onRope) { // Right key pressed
+                if(speed.x < this.maxSpeed) {
+                    // speed.x = this.maxSpeed;
+                    speed.x += this.acceleration * dt;
+                    if (speed.x >= this.maxSpeed) {
+                        speed.x = this.maxSpeed;
+                    }
+                }
+            } else { // Release the key
+                if(speed.x != 0) {
+                    var d = this.drag * dt;
+                    if(Math.abs(speed.x) <= d) {
+                        speed.x = 0;
+                    } else {
+                        speed.x -= speed.x > 0 ? d : -d;
+                    }
+                }
+            }
+            // cc.log(speed);
+            // Jump
+            if (this.jumps > 0 && this._alt && !this.onRope) {
+                cc.audioEngine.play(this.jumpAudio, false,  1);
+                this.jumps--;
+                speed.y = this.jumpSpeed;
+                this._alt = false;
             }
         }
 
-        // Jump
-        if (this.jumps > 0 && this._up) {
-            cc.audioEngine.play(this.jumpAudio, false,  1);
-            this.jumps--;
-            speed.y = this.jumpSpeed;
-            this._up = false;
+        // 连续两帧y速度为0即重置跳跃
+        if (this.prey==0 && speed.y==0) {
+            this.jumps = 1;
+            this.outOfCtrl = false;
         }
 
         // Scene border
@@ -150,6 +227,8 @@ cc.Class({
         
         // Implement
         this.body.linearVelocity = speed;
+        this.prey = speed.y;
+        // cc.log(this.body.gravityScale);
     },
 
     

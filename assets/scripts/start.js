@@ -65,7 +65,7 @@ cc.Class({
     },
 
     onStartGame: function () {
-        cc.director.loadScene('Game');
+        cc.director.loadScene('Game2');
     },
 
     start () {
