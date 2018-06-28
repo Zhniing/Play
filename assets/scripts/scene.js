@@ -1,13 +1,3 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-
 cc.Class({
     extends: cc.Component,
 
@@ -34,19 +24,19 @@ cc.Class({
         },
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
     onLoad () {
         if (this.gameMenu) {
-            cc.director.getPhysicsManager().enabled = true; // 启用物理引擎
-            // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit; // Enable debug
+            // 启用物理引擎
+            cc.director.getPhysicsManager().enabled = true;
+            // Enable debug
+            // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit;
             this.isGameMenu = false;
             cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         }
         var curScene = cc.director.getScene();
         if (curScene.name == 'StartMenu') {
             cc.log('preload');
-            cc.director.preloadScene('Game');
+            cc.director.preloadScene('03');
             cc.director.preloadScene('GameOver');
         }
 
@@ -64,14 +54,6 @@ cc.Class({
         if (this.backgroundAudio) {
             this.audioBackground = cc.audioEngine.play(this.backgroundAudio, true, 1);
         }
-        // cc.log(cc.audioEngine.getVolume(this.audioBackground));
-        
-        // if (this.mask) {
-        //     this.mask.active = false;
-        // }
-        // if (this.gameMenu) {
-        //     this.gameMenu.active = false;
-        // }
     },
 
     onDestroy () {
@@ -82,15 +64,8 @@ cc.Class({
         cc.audioEngine.play(this.mouseEnterAudio, false, 1);
     },
 
-    // onMouseDown: function () {
-    //     this._pressed = true;
-    // },
-
     onMouseUp: function () {
-        // if (this._pressed) {
-            // this._pressed = false;
-            cc.audioEngine.play(this.mouseUpAudio);
-        // }
+        cc.audioEngine.play(this.mouseUpAudio);
     },
 
     onKeyDown: function (event) {
@@ -105,13 +80,11 @@ cc.Class({
         }
     },
     openMenu: function () {
-        // cc.director.pause();
         this.isGameMenu = true;
         this.mask.active = true;
         this.gameMenu.active = true;
     },
     closeMenu: function () {
-        // cc.director.resume();
         this.isGameMenu = false;
         this.mask.active = false;
         this.gameMenu.active = false;
@@ -119,11 +92,11 @@ cc.Class({
 
     // Button event
     startGame: function () {
-        cc.director.loadScene('Game');
+        cc.director.loadScene('03');
     },
 
     tryAgain: function () {
-        cc.director.loadScene('Game');
+        cc.director.loadScene('03');
     },
 
     backToMenu: function () {

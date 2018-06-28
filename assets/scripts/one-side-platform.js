@@ -1,5 +1,3 @@
-// http://www.iforce2d.net/b2dtut/one-way-walls
-
 cc.Class({
     extends: cc.Component,
 
@@ -33,8 +31,6 @@ cc.Class({
                 break;
             }
         }
-        // console.log(points);
-        // check if contact points are moving into platform
         for (let i = 0; i < points.length; i++) {
             platformBody.getLinearVelocityFromWorldPoint( points[i], pointVelPlatform );
             // console.log(pointVelPlatform);
@@ -45,27 +41,10 @@ cc.Class({
             if ( relativeVel.y < 0 && !flag) {
                 return;
             }
-            // if ( relativeVel.y < -32 ) //if moving down faster than 32 pixel/s (1m/s), handle as before
-            //     return;  //point is moving into platform, leave contact solid and exit
-            // else if ( relativeVel.y < 32 ) { //if moving slower than 32 pixel/s (1m/s)
-            //     //borderline case, moving only slightly out of platform
-            //     platformBody.getLocalPoint( points[i], relativePoint );
-            //     let platformFaceY = selfCollider.getAABB().height / 2;  //front of platform, should only used on a box collider
-            //     if ( relativePoint.y > platformFaceY - 0.1*32 )
-            //         return;  //contact point is less than 3.2pixel (10cm) inside front face of platfrom
-            // }
-            // else {
-            //     //moving up faster than 1 m/s
-                
-            // }
         }
         
-        // store disabled state to contact
         contact.disabled = true; // 取消本次碰撞
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
+    // update (dt) {},
 });

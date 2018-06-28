@@ -1,5 +1,3 @@
-// cc.macro.ENABLE_TILEDMAP_CULLING = false;
-
 cc.Class({
     extends: cc.Component,
 
@@ -32,36 +30,6 @@ cc.Class({
         this.prey = 0;
         this.gravity = this.body.gravityScale;
     },
-
-    // onBeginContact: function (contact, selfCollider, otherCollider) {
-    //     // if (this.flag) {
-    //     //     // contact.disabled = true;
-    //     //     this.flag = false;
-    //     // }
-
-    //     let otherBody = otherCollider.body;
-    //     let platformBody = selfCollider.body;
-
-    //     let worldManifold = contact.getWorldManifold();
-    //     let points = worldManifold.points;
-    //     // cc.log(points.length);
-    //     var flag = false;
-    //     for (var i = 0; i < points.length-1; i++) {
-    //         if ( points[i].y != points[i+1].y ) {
-    //             flag = true; // 碰撞点的y坐标不相等
-    //             break;
-    //         }
-    //     }
-        
-    //     // if (points[0].y == points[1].y) {
-    //     //     this.jumps = this._jumps;
-    //     // }
-
-    //     if ( !flag ) {
-    //         this.jumps = this._jumps;
-    //         this.hurt = false;
-    //     }
-    // },
 
     onKeyDown (event) {
         switch(event.keyCode) {
@@ -168,9 +136,7 @@ cc.Class({
             this.onRope = false;
         }
 
-        
         // Move
-        
         if (!this.outOfCtrl) {
             if(this._left && !this.onRope) { // Left key pressed
                 if(speed.x > -this.maxSpeed) {
@@ -198,7 +164,6 @@ cc.Class({
                     }
                 }
             }
-            // cc.log(speed);
             // Jump
             if (this.jumps > 0 && this._alt && !this.onRope) {
                 cc.audioEngine.play(this.jumpAudio, false,  1);
@@ -228,8 +193,5 @@ cc.Class({
         // Implement
         this.body.linearVelocity = speed;
         this.prey = speed.y;
-        // cc.log(this.body.gravityScale);
     },
-
-    
 });
