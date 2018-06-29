@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "473e7ad2-9b68-468b-b479-0d39da336f79",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "SpringValley.hidden_flower.2.0": {
+      "ver": "1.0.3",
+      "uuid": "dba0735f-f197-404b-9c1f-8a95dfb75b7a",
+      "rawTextureUuid": "473e7ad2-9b68-468b-b479-0d39da336f79",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 51,
+      "height": 41,
+      "rawWidth": 51,
+      "rawHeight": 41,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

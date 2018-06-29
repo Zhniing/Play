@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "1d626ab7-dfd3-46c3-9e82-edb4deba9bcb",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "SpringValley_forest.treefoot.0.0": {
+      "ver": "1.0.3",
+      "uuid": "e40575a9-3cb9-4833-bcfc-6b3c7048ef62",
+      "rawTextureUuid": "1d626ab7-dfd3-46c3-9e82-edb4deba9bcb",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 210,
+      "height": 207,
+      "rawWidth": 210,
+      "rawHeight": 207,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

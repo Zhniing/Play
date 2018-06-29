@@ -29,7 +29,7 @@ cc.Class({
             // 启用物理引擎
             cc.director.getPhysicsManager().enabled = true;
             // Enable debug
-            cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit;
+            // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit;
             this.isGameMenu = false;
             cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         }
