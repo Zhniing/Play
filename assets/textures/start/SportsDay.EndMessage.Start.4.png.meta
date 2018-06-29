@@ -1,14 +1,14 @@
 {
   "ver": "1.0.0",
-  "uuid": "e23480ee-4e9d-491e-a02d-199cec2b3f5a",
+  "uuid": "b81f7115-7ee1-4a5c-b1b6-a5ad1340b596",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "subMetas": {
-    "测试1": {
+    "SportsDay.EndMessage.Start.4": {
       "ver": "1.0.3",
-      "uuid": "746ca81c-33eb-4c77-b7fd-386254d6c00a",
-      "rawTextureUuid": "e23480ee-4e9d-491e-a02d-199cec2b3f5a",
+      "uuid": "24a1b253-422f-4c4d-8d62-0c677e0f2e30",
+      "rawTextureUuid": "b81f7115-7ee1-4a5c-b1b6-a5ad1340b596",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -16,10 +16,10 @@
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 1000,
-      "height": 2128,
-      "rawWidth": 1000,
-      "rawHeight": 2128,
+      "width": 375,
+      "height": 103,
+      "rawWidth": 375,
+      "rawHeight": 103,
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,

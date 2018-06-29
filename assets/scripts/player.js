@@ -90,7 +90,7 @@ cc.Class({
             cc.director.loadScene("GameOver");
             this.enabled = false; // 终止脚本
         }
-        if (this.hurt) { // 弹一下
+        if (this.hurt && !this.outOfCtrl) { // 弹一下
             if (this.flag) speed.x = -200;
             else speed.x = 200;
             speed.y = 300;
@@ -99,7 +99,7 @@ cc.Class({
             this.enterRope = false;
         }
         if (this.enterRope) { // 进入绳子范围
-            if (!this.onRope && (this._up || this._down)) {
+            if (!this.onRope && (this._up || this._down)  && !this.outOfCtrl) {
                 if (this._down) {
                     this.node.y -= this.node.height*this.node.scale;
                 }

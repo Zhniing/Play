@@ -1,14 +1,14 @@
 {
   "ver": "1.0.0",
-  "uuid": "e23480ee-4e9d-491e-a02d-199cec2b3f5a",
+  "uuid": "bbce008a-d331-4afa-98fa-8bb5fc7882a5",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "subMetas": {
-    "测试1": {
+    "moving.javelin.3.0": {
       "ver": "1.0.3",
-      "uuid": "746ca81c-33eb-4c77-b7fd-386254d6c00a",
-      "rawTextureUuid": "e23480ee-4e9d-491e-a02d-199cec2b3f5a",
+      "uuid": "3467ba68-54e0-483d-be42-44ff1b29679f",
+      "rawTextureUuid": "bbce008a-d331-4afa-98fa-8bb5fc7882a5",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -16,10 +16,10 @@
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 1000,
-      "height": 2128,
-      "rawWidth": 1000,
-      "rawHeight": 2128,
+      "width": 29,
+      "height": 29,
+      "rawWidth": 29,
+      "rawHeight": 29,
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,

@@ -46,7 +46,6 @@ cc.Class({
             for (var j=0; j<this.grandchild.length; j++) {
                 if (this.grandchild[j].getComponent(cc.Button)) {
                     this.grandchild[j].on(cc.Node.EventType.MOUSE_ENTER, this.onMouseEnter, this);
-                    // this.children[i].on(cc.Node.EventType.MOUSE_DOWN, this.onMouseDown, this);
                     this.grandchild[j].on(cc.Node.EventType.MOUSE_UP, this.onMouseUp, this);
                 }
             }

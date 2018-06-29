@@ -17,7 +17,7 @@ cc.Class({
         if (otherCollider.node.name == 'Player') {
             var player = otherCollider.node.getComponent('player');
             player.hurt = true;
-            if (selfCollider.node.x > otherCollider.node.position.x + otherCollider.node.parent.width/2) {
+            if (selfCollider.node.x > otherCollider.node.x) {
                 player.flag = true; // 往左弹
             } else {
                 player.flag = false; // 往右弹

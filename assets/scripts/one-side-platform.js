@@ -11,8 +11,6 @@ cc.Class({
     },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        let cache = this._pointsCache;
-
         let otherBody = otherCollider.body;
         let platformBody = selfCollider.body;
 
@@ -33,11 +31,8 @@ cc.Class({
         }
         for (let i = 0; i < points.length; i++) {
             platformBody.getLinearVelocityFromWorldPoint( points[i], pointVelPlatform );
-            // console.log(pointVelPlatform);
             otherBody.getLinearVelocityFromWorldPoint( points[i], pointVelOther );
-            // console.log(pointVelOther);
             platformBody.getLocalVector( pointVelOther.subSelf(pointVelPlatform), relativeVel );
-            // console.log(relativeVel);
             if ( relativeVel.y < 0 && !flag) {
                 return;
             }
