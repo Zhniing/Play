@@ -33,8 +33,9 @@ cc.Class({
             platformBody.getLinearVelocityFromWorldPoint( points[i], pointVelPlatform );
             otherBody.getLinearVelocityFromWorldPoint( points[i], pointVelOther );
             platformBody.getLocalVector( pointVelOther.subSelf(pointVelPlatform), relativeVel );
+            // 角色y方向速度向下 并且 两个碰撞点在同一水平线上
             if ( relativeVel.y < 0 && !flag) {
-                return;
+                return; // 则返回，否则取消本次碰撞
             }
         }
         

@@ -33,6 +33,7 @@ cc.Class({
             this.isGameMenu = false;
             cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         }
+        // 预加载场景
         var curScene = cc.director.getScene();
         if (curScene.name == 'StartMenu') {
             cc.log('preload');
@@ -40,6 +41,7 @@ cc.Class({
             cc.director.preloadScene('GameOver');
         }
 
+        // 为每个按钮绑定鼠标交互音效
         this.children = this.node.children;
         for (var i=0; i<this.children.length; i++) {
             this.grandchild = this.children[i].children;
@@ -59,10 +61,12 @@ cc.Class({
         cc.audioEngine.stop(this.audioBackground);
     },
 
+    // 鼠标移入音效
     onMouseEnter: function () {
         cc.audioEngine.play(this.mouseEnterAudio, false, 1);
     },
 
+    // 鼠标抬起音效
     onMouseUp: function () {
         cc.audioEngine.play(this.mouseUpAudio);
     },

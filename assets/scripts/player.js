@@ -90,6 +90,8 @@ cc.Class({
             cc.director.loadScene("GameOver");
             this.enabled = false; // 终止脚本
         }
+
+        // 是否被碰到陷阱
         if (this.hurt && !this.outOfCtrl) { // 弹一下
             if (this.flag) speed.x = -200;
             else speed.x = 200;
@@ -98,7 +100,9 @@ cc.Class({
             this.hurt = false;
             this.enterRope = false;
         }
-        if (this.enterRope) { // 进入绳子范围
+
+        // 是否进入绳子范围
+        if (this.enterRope) {
             if (!this.onRope && (this._up || this._down)  && !this.outOfCtrl) {
                 if (this._down) {
                     this.node.y -= this.node.height*this.node.scale;
@@ -179,7 +183,7 @@ cc.Class({
             this.outOfCtrl = false;
         }
 
-        // Scene border
+        // Scene border 防止跑出地图边界
         var l = -this.node.parent.width/2 + this.node.width*this.node.scale/2;
         var r = this.node.parent.width/2 - this.node.width*this.node.scale/2;
         if ( this.node.x < l) {
