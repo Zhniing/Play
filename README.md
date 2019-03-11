@@ -1,5 +1,5 @@
 # Play
-基于[Cocos Creator](http://www.cocos.com/)引擎，2D横版卷轴式闯关小游戏。
+基于[Cocos Creator](http://www.cocos.com/)引擎，2D横版卷轴式闯关小游戏。(素材取自网络，用于学习交流)
 # Screenshots
 ![cocosCreator](https://github.com/Zhniing/Play/blob/master/screenshots/cocos_creator.png)
 ![startMenu](https://github.com/Zhniing/Play/blob/master/screenshots/startmenu.png)
