@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "e303cd84-be83-432b-bfa5-6b8438b896c3",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 360,
+  "height": 138,
+  "platformSettings": {},
   "subMetas": {
     "SpringValley.foot.6.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "c0eb8331-d773-4b73-81e4-a5053bc4ea9c",
       "rawTextureUuid": "e303cd84-be83-432b-bfa5-6b8438b896c3",
       "trimType": "auto",

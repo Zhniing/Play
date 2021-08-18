@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "4f4a473d-4649-4ac0-a527-755731185be3",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 648,
+  "height": 365,
+  "platformSettings": {},
   "subMetas": {
     "SpringValley.hidden_rainbow.4.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "46fc8514-6e54-43cf-8ab9-58a95eec81a9",
       "rawTextureUuid": "4f4a473d-4649-4ac0-a527-755731185be3",
       "trimType": "auto",

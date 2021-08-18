@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "79db9413-5692-49c1-aad7-e2ec8a06f686",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 18,
+  "height": 29,
+  "platformSettings": {},
   "subMetas": {
     "rope.5.0.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "6793cb70-0f9a-4d31-a698-f55e130785ee",
       "rawTextureUuid": "79db9413-5692-49c1-aad7-e2ec8a06f686",
       "trimType": "auto",

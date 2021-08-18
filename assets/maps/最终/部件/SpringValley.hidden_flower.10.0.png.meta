@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "a3f3759f-4519-4ae2-8dbd-3457a5e3a36f",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 298,
+  "height": 134,
+  "platformSettings": {},
   "subMetas": {
     "SpringValley.hidden_flower.10.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "aad7bdec-028d-49e8-a9bb-0c1370991c74",
       "rawTextureUuid": "a3f3759f-4519-4ae2-8dbd-3457a5e3a36f",
       "trimType": "auto",

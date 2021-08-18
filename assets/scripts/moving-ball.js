@@ -7,8 +7,8 @@ cc.Class({
 
     onLoad () {
          // 创建 easeInOut 缓动对象，慢到快，然后慢。
-        var moveTo = cc.moveBy(2, cc.p(200, 0)).easing(cc.easeInOut(3.0));
-        var moveBack = cc.moveBy(2, cc.p(-200, 0)).easing(cc.easeCubicActionInOut());
+        var moveTo = cc.moveBy(2, cc.v2(200, 0)).easing(cc.easeInOut(3.0));
+        var moveBack = cc.moveBy(2, cc.v2(-200, 0)).easing(cc.easeCubicActionInOut());
         var moveAction = cc.repeatForever(cc.sequence(moveTo, moveBack));
         this.node.runAction(moveAction);
     },

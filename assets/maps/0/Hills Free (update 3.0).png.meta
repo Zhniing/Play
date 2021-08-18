@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "cf879550-fd89-4943-a5a2-0cb5282a2e98",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 256,
+  "platformSettings": {},
   "subMetas": {
     "Hills Free (update 3.0)": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "ce733bc3-6b20-4527-82d3-06ccb123029e",
       "rawTextureUuid": "cf879550-fd89-4943-a5a2-0cb5282a2e98",
       "trimType": "auto",

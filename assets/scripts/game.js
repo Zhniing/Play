@@ -47,7 +47,7 @@ cc.Class({
 
     onKeyDown: function (event) {
         switch (event.keyCode) {
-            case cc.KEY.escape:
+            case cc.macro.KEY.escape:
                 if ( !this.isMenu ) {
                     this.openMenu();
                 } else {

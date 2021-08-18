@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "6c2f454d-9a0f-4eeb-859f-508e7b5755c5",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 643,
+  "height": 96,
+  "platformSettings": {},
   "subMetas": {
     "SpringValley.house.5.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "66805833-e5d8-44bb-ae16-3916aedcd40b",
       "rawTextureUuid": "6c2f454d-9a0f-4eeb-859f-508e7b5755c5",
       "trimType": "auto",

@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "497565eb-7dea-46d0-bb70-673fa8378114",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 143,
+  "height": 45,
+  "platformSettings": {},
   "subMetas": {
     "SpringValley_lake.obj.3.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "16279fb9-72ca-4217-9dc8-3fb7538ec4e2",
       "rawTextureUuid": "497565eb-7dea-46d0-bb70-673fa8378114",
       "trimType": "auto",

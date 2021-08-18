@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "7d0ea748-3f79-42c5-be3e-cec845caf22f",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 78,
+  "height": 67,
+  "platformSettings": {},
   "subMetas": {
     "PurpleMonster": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "8a8ef5fb-dd72-40fa-a35b-cb961950eaca",
       "rawTextureUuid": "7d0ea748-3f79-42c5-be3e-cec845caf22f",
       "trimType": "auto",

@@ -13,10 +13,10 @@ cc.Class({
     },
 
     onEnable: function () {
-        cc.director.getPhysicsManager().attachDebugDrawToCamera(this.camera);
+        // cc.director.getPhysicsManager().attachDebugDrawToCamera(this.camera);
     },
     onDisable: function () {
-        cc.director.getPhysicsManager().detachDebugDrawFromCamera(this.camera);
+        // cc.director.getPhysicsManager().detachDebugDrawFromCamera(this.camera);
     },
 
     lateUpdate: function (dt) {

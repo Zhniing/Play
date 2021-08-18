@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "1fb5b3b0-49fd-47f2-b501-9e17f2342c0d",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 375,
+  "height": 247,
+  "platformSettings": {},
   "subMetas": {
     "SpringValley_forest.treefoot.4.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "935a23e2-29ee-484e-9009-df709fa617aa",
       "rawTextureUuid": "1fb5b3b0-49fd-47f2-b501-9e17f2342c0d",
       "trimType": "auto",

@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "4d746586-954c-4422-b600-f5f98ef3d26b",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 256,
+  "platformSettings": {},
   "subMetas": {
     "Art Tileset": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "29040746-d429-41e2-a31f-edd397667781",
       "rawTextureUuid": "4d746586-954c-4422-b600-f5f98ef3d26b",
       "trimType": "auto",

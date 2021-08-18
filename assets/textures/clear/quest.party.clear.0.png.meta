@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "7b19f702-9b26-4e45-96c1-0e02fe0cefac",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 333,
+  "height": 360,
+  "platformSettings": {},
   "subMetas": {
     "quest.party.clear.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "6306e7b2-38f3-420c-b0b5-689c66b4b999",
       "rawTextureUuid": "7b19f702-9b26-4e45-96c1-0e02fe0cefac",
       "trimType": "auto",

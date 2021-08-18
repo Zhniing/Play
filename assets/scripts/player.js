@@ -33,25 +33,25 @@ cc.Class({
 
     onKeyDown (event) {
         switch(event.keyCode) {
-            case cc.KEY.a:
-            case cc.KEY.left:
+            case cc.macro.KEY.a:
+            case cc.macro.KEY.left:
                 this._left = true;
                 break;
-            case cc.KEY.d:
-            case cc.KEY.right:
+            case cc.macro.KEY.d:
+            case cc.macro.KEY.right:
                 this._right = true;
                 break;
-            case cc.KEY.alt:
+            case cc.macro.KEY.alt:
                 if (!this._altPressed && this.body.linearVelocity.y == 0) {
                     this._alt = true;
                 }
                 this._altPressed = true;
                 break;
-            case cc.KEY.w:
-            case cc.KEY.up:
+            case cc.macro.KEY.w:
+            case cc.macro.KEY.up:
                 this._up = true;
                 break;
-            case cc.KEY.down:
+            case cc.macro.KEY.down:
                 this._down = true;
                 break;
         }
@@ -59,23 +59,23 @@ cc.Class({
 
     onKeyUp (event) {
         switch(event.keyCode) {
-            case cc.KEY.a:
-            case cc.KEY.left:
+            case cc.macro.KEY.a:
+            case cc.macro.KEY.left:
                 this._left = false;
                 break;
-            case cc.KEY.d:
-            case cc.KEY.right:
+            case cc.macro.KEY.d:
+            case cc.macro.KEY.right:
                 this._right = false;
                 break;
-            case cc.KEY.alt:
+            case cc.macro.KEY.alt:
                 this._altPressed = false;
                 this._alt = false;
                 break;
-            case cc.KEY.w:
-            case cc.KEY.up:
+            case cc.macro.KEY.w:
+            case cc.macro.KEY.up:
                 this._up = false;
                 break;
-            case cc.KEY.down:
+            case cc.macro.KEY.down:
                 this._down = false;
                 break;
         }

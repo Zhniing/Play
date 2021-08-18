@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "454ce0f6-04a3-401e-b4bd-133582c92680",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 148,
+  "height": 68,
+  "platformSettings": {},
   "subMetas": {
     "dynamicObj.tileGiantBoss.5.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "633171b3-d430-4994-bc0e-4e5e45e3a462",
       "rawTextureUuid": "454ce0f6-04a3-401e-b4bd-133582c92680",
       "trimType": "auto",

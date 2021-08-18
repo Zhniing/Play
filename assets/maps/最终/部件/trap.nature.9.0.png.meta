@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "34b6ada8-772b-410f-ae60-d9d64be39929",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 13,
+  "height": 14,
+  "platformSettings": {},
   "subMetas": {
     "trap.nature.9.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "a5f2e486-9776-4273-b72c-0e061aaeaf1f",
       "rawTextureUuid": "34b6ada8-772b-410f-ae60-d9d64be39929",
       "trimType": "auto",

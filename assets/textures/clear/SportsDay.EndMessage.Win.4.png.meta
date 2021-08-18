@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "5429397a-8473-4f0c-85b5-b9c48598a8f6",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 215,
+  "height": 75,
+  "platformSettings": {},
   "subMetas": {
     "SportsDay.EndMessage.Win.4": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "085825fa-541f-46b2-a874-1db68802c843",
       "rawTextureUuid": "5429397a-8473-4f0c-85b5-b9c48598a8f6",
       "trimType": "auto",

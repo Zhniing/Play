@@ -1,12 +1,18 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.4",
   "uuid": "d1e1a652-b5dc-48be-bac4-1b510d7cc1e9",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 28,
+  "height": 28,
+  "platformSettings": {},
   "subMetas": {
     "moving.javelin.1.0": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "93bf7765-95e5-4274-953f-2e88e4d400ab",
       "rawTextureUuid": "d1e1a652-b5dc-48be-bac4-1b510d7cc1e9",
       "trimType": "auto",
