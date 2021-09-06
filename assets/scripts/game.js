@@ -29,6 +29,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        console.log('game.js') // ! 该脚本不会被执行
         cc.director.getPhysicsManager().enabled = true; // 启用物理引擎
         // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_shapeBit; // Enable debug
 

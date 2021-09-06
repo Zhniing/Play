@@ -5,11 +5,14 @@ cc.Class({
         
     },
 
-    // onLoad () {},
+    onLoad () {
+        console.log('win.js')
+    },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
         if (otherCollider.node.name == 'Player') {
-            var nodeWin = selfCollider.node.parent.parent.getChildByName('Animation').getChildByName('Win');
+            // var nodeWin = selfCollider.node.parent.parent.getChildByName('Animation').getChildByName('Win');
+            var nodeWin = cc.find("Canvas/Camera/Win");
             var animWin = nodeWin.getComponent(cc.Animation);
 
             animWin.play();

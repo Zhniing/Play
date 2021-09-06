@@ -25,6 +25,7 @@ cc.Class({
     },
 
     onLoad () {
+        console.log('scene.js')
         if (this.gameMenu) {
             // 启用物理引擎
             cc.director.getPhysicsManager().enabled = true;
@@ -36,8 +37,9 @@ cc.Class({
         // 预加载场景
         var curScene = cc.director.getScene();
         if (curScene.name == 'StartMenu') {
-            cc.log('preload');
+            cc.log('sence 03 preload');
             cc.director.preloadScene('03');
+            cc.log('sence GameOver preload');
             cc.director.preloadScene('GameOver');
         }
 
@@ -83,11 +85,13 @@ cc.Class({
         }
     },
     openMenu: function () {
+        cc.director.pause();
         this.isGameMenu = true;
         this.mask.active = true;
         this.gameMenu.active = true;
     },
     closeMenu: function () {
+        cc.director.resume();
         this.isGameMenu = false;
         this.mask.active = false;
         this.gameMenu.active = false;

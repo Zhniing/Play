@@ -29,6 +29,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        console.log('start.js') // ! 该脚本不会被执行
         // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onMouseEnter, this);
         this.children = this.node.children;
         for (var i=0; i<this.children.length; i++) {

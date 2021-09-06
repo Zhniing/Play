@@ -33,7 +33,7 @@
   },
   "use-customize-simulator": true,
   "use-project-simulator-setting": false,
-  "last-module-event-record-time": 1629261338763,
+  "last-module-event-record-time": 1630898854700,
   "assets-sort-type": "name",
   "facebook": {
     "appID": "",
@@ -45,5 +45,5 @@
       "enable": false
     }
   },
-  "start-scene": "605cd1cd-a82b-4cd6-b57e-66f5a5cc9b8b"
+  "start-scene": "current"
 }

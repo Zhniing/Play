@@ -11,6 +11,8 @@ cc.Class({
             default: null,
             url: cc.AudioClip,
         },
+        // Player X=-386, Y=-57
+        // Map X=0, Y=737
     },
 
     onLoad: function () {
@@ -54,6 +56,9 @@ cc.Class({
             case cc.macro.KEY.down:
                 this._down = true;
                 break;
+            case cc.macro.KEY.z:
+                this._pause = true;
+                break;
         }
     },
 
@@ -77,6 +82,9 @@ cc.Class({
                 break;
             case cc.macro.KEY.down:
                 this._down = false;
+                break;
+            case cc.macro.KEY.z:
+                this._pause = false;
                 break;
         }
     },
